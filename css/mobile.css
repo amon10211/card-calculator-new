@@ -1,0 +1,81 @@
+html, body{ overflow:auto; height:auto; }
+
+body{
+  display:block;
+  padding: 10px 10px 16px;
+}
+
+:root{
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+/* 上：結果 sticky */
+.result-panel{
+  position: sticky;
+  top: calc(8px + var(--safe-top));
+  z-index: 999;
+  width: 100%;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(18,20,30,.82), rgba(10,10,16,.62));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 38px rgba(0,0,0,.55);
+}
+
+/* 中：主操作 */
+.wrap{
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 10px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  box-shadow: 0 16px 38px rgba(0,0,0,.55);
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slot{ height: 112px; border-radius: 14px; }
+
+/* 數字鍵盤：大顆 */
+.btns{
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 96px; /* 給底部 ops 空間，避免被蓋住 */
+}
+.btns button{ padding: 12px 0; font-size: 15px; border-radius: 14px; }
+
+/* 下：操作列 sticky */
+.ops{
+  position: sticky;
+  bottom: calc(8px + var(--safe-bottom));
+  z-index: 998;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px;
+  border-radius: 18px;
+  background: rgba(10, 12, 18, .55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 14px 30px rgba(0,0,0,.50);
+}
+
+/* 統計：底部兩欄 */
+.stats-right{
+  width: 100%;
+  margin-top: 10px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.panel{ padding: 10px 12px; border-radius: 18px; }
+.panel-value{ font-size: 28px; }
+
+@media (max-width: 420px){
+  .btns{ grid-template-columns: repeat(6, 1fr); }
+  .ops{ grid-template-columns: repeat(2, 1fr); }
+  .slot{ height: 102px; }
+}

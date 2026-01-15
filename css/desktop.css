@@ -1,0 +1,42 @@
+html, body{ overflow:hidden; }
+
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 18px;
+  padding: 18px;
+}
+
+.result-panel{
+  width: 320px;
+  max-height: calc(100vh - 36px);
+  overflow:auto;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  box-shadow: var(--shadow);
+}
+
+.wrap{
+  width: 520px;
+  min-width: 520px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slot{ height: 150px; }
+
+.stats-right{
+  width: 260px;
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+}
